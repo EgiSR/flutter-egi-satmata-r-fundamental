@@ -75,6 +75,3 @@ class _calculatorState extends State<calculator> {
     );
   }
 }
-
-
-//https://www.figma.com/file/GSwr2D21AQw1C3VnWCSJD0/Mini-Playstore?node-id=0%3A1https://www.figma.com/file/GSwr2D21AQw1C3VnWCSJD0/Mini-Playstore?node-id=0%3A1
