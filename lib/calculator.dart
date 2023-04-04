@@ -13,6 +13,40 @@ class _calculatorState extends State<calculator> {
   TextEditingController controller1 = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
+  double result = 0, angkaPertama = 0, angkaKedua = 0;
+
+  add() {
+    setState(() {
+      angkaPertama = double.parse(controller1.text);
+      angkaKedua = double.parse(controller2.text);
+      result = angkaPertama + angkaKedua;
+    });
+  }
+
+  substract() {
+    setState(() {
+      angkaPertama = double.parse(controller1.text);
+      angkaKedua = double.parse(controller2.text);
+      result = angkaPertama - angkaKedua;
+    });
+  }
+
+  multiply() {
+    setState(() {
+      angkaPertama = double.parse(controller1.text);
+      angkaKedua = double.parse(controller2.text);
+      result = angkaPertama * angkaKedua;
+    });
+  }
+
+  divide() {
+    setState(() {
+      angkaPertama = double.parse(controller1.text);
+      angkaKedua = double.parse(controller2.text);
+      result = angkaPertama / angkaKedua;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +58,7 @@ class _calculatorState extends State<calculator> {
         child: Column(
           children: [
             Text(
-              "Result : 0",
+              "Result : $result",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -54,19 +88,43 @@ class _calculatorState extends State<calculator> {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    ElevatedButton(onPressed: () {}, child: Text("ADD")),
+                    ElevatedButton(
+                        onPressed: () {
+                          add();
+                          controller1.clear();
+                          controller2.clear();
+                        },
+                        child: Text("ADD")),
                     SizedBox(
                       height: 10,
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text("SUBSTRACT")),
+                    ElevatedButton(
+                        onPressed: () {
+                          substract();
+                          controller1.clear();
+                          controller2.clear();
+                        },
+                        child: Text("SUBSTRACT")),
                     SizedBox(
                       height: 10,
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text("MULTIPLY")),
+                    ElevatedButton(
+                        onPressed: () {
+                          multiply();
+                          controller1.clear();
+                          controller2.clear();
+                        },
+                        child: Text("MULTIPLY")),
                     SizedBox(
                       height: 10,
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text("DIVIDE")),
+                    ElevatedButton(
+                        onPressed: () {
+                          divide();
+                          controller1.clear();
+                          controller2.clear();
+                        },
+                        child: Text("DIVIDE")),
                   ],
                 ))
           ],
